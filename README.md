@@ -363,7 +363,7 @@ Keterangan:
 - `s 192.186.4.0/22` : Mendifinisikan alamat asal dari paket yaitu IP dari subnet Chiper
 - `m time` : Menggunakan rule time
 - `-timestart 07:00` : Mendefinisikan waktu mulai yaitu 07:00
-- `-timestop 15:00: : Mendefinisikan waktu berhenti yaitu 15:00
+- `-timestop 15:00`: Mendefinisikan waktu berhenti yaitu 15:00
 - `--weekdays Mon,Tue,Wed,Thu` : Mendefinisikan hari yaitu Senin hingga Kamis
 - `-j ACCEPT` : Paket di-accept
 - `-j REJECT` : Paket ditolak
@@ -398,7 +398,7 @@ Keterangan:
 - `-s 192.186.1.0/24` : Mendifinisikan alamat asal dari paket yaitu IP dari subnet Fukurou
 - `m time` : Menggunakan rule time
 - `-timestart 07:00` : Mendefinisikan waktu mulai yaitu 07:00
-- `-timestop 15:00: : Mendefinisikan waktu berhenti yaitu 15:00
+- `-timestop 15:00` : Mendefinisikan waktu berhenti yaitu 15:00
 - `-j REJECT` : Paket ditolak
 
 **Testing**
@@ -474,4 +474,6 @@ Kendala:
 
 -> Nomer 2 masih bingung ketika di bash, output port 80 udah filtered tapi ketika di jalankan kembali outputnya open
 
--> Nomer 1 ketika mencari IP nat pada source kesulitan   
+-> Nomer 1 ketika mencari IP nat pada source sempat kesulitan   
+
+-> Nomer 3 pada saat 4 node secara bersamaan semua ping menuju doriki atau jipangu mati
