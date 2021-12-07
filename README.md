@@ -31,6 +31,132 @@ Cahyadesthian R. W. (05111940000156)
 | A8 | 4 | /29 | 255.255.255.248 | 192.186.0.24 |
 | Jumlah | 1316 | /21 | 255.255.248.0 | - |
 
+- SETTING INTERFACE PADA GNS3
+**Foosha**
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+        address 192.186.0.1
+        netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+         address 192.186.0.5
+         netmask 255.255.255.252
+```
+**Water7**
+```
+auto eth0
+iface eth0 inet static
+        address 192.186.0.2
+        netmask 255.255.255.252
+        gateway 192.186.0.1
+
+auto eth1
+iface eth1 inet static
+        address 192.186.0.17
+        netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+         address 192.186.0.129
+         netmask 255.255.255.128
+
+auto eth3
+iface eth3 inet static
+         address 192.186.4.1
+         netmask 255.255.252.0
+```
+**GUANHAO**
+```
+auto eth0
+iface eth0 inet static
+          address 192.186.0.6
+          netmask 255.255.255.252
+          gateway 192.186.0.5
+
+auto eth1
+iface eth1 inet static
+          address 192.186.0.25
+          netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+          address 192.186.1.1
+          netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+           address 192.186.2.1
+          netmask 255.255.254.0
+```
+**Blueno**
+```
+auto eth0
+iface eth0 inet static
+      address 192.186.0.130
+      netmask 255.255.255.128
+      gateway 192.186.0.129
+```
+**Chiper**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.4.2
+      netmask 255.255.252.0
+       gateway 192.186.4.1
+```
+**ELENA**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.2.2
+       netmask 255.255.254.0
+       gateway 192.186.2.1
+```
+**fukurou**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.1.2
+       netmask 255.255.255.0
+       gateway 192.186.1.1
+```
+**MainGate**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.0.27
+       netmask 255.255.255.248
+       gateway 192.186.0.25
+```
+**Jorge**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.0.26
+       netmask 255.255.255.248
+       gateway 192.186.0.25
+```
+**Doriki**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.0.18
+       netmask 255.255.255.248
+       gateway 192.186.0.17
+```
+**Jipangu**
+```
+auto eth0
+iface eth0 inet static
+       address 192.186.0.19
+       netmask 255.255.255.248
+       gateway 192.186.0.17
+```
 ### (C) Routing
 route add -net 192.186.1.0 netmask 255.255.255.0 gw 192.186.0.6                                     
 route add -net 192.186.2.0 netmask 255.255.254.0 gw 192.186.0.6                                   
@@ -322,8 +448,4 @@ iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-so
 **Jorge**
 
 <img width="224" alt="su" src="https://user-images.githubusercontent.com/81076281/145011500-df815306-12e9-485f-bbdd-8f5b60da4bb4.PNG">
-
-
-
-
 
