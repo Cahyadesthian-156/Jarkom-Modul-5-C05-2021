@@ -472,6 +472,8 @@ iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-so
 
 Kendala:
 
+-> Kendala pada jaringan internet sehingga restart node dan menjalankan ulang scriptnya
+
 -> Nomer 2 masih bingung ketika di bash, output port 80 udah filtered tapi ketika di jalankan kembali outputnya open
 
 -> Nomer 1 ketika mencari IP nat pada source sempat kesulitan   
