@@ -122,6 +122,9 @@ Lalu, pada semua node yang terkait dilakukan `echo nameserver 192.168.122.1 > /e
 
 ### (3) Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
 
+Pada Jipangu dan Doriki diberikan komen `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`. Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
+
+Lalu, ping ke arah Jipangu secara bersamaan.
 
 ### (4) Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut :Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
 
