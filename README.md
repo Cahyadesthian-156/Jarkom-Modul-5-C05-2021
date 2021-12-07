@@ -206,7 +206,7 @@ Lalu, ping ke arah Jipangu secara bersamaan.
 
 <img width="388" alt="311" src="https://user-images.githubusercontent.com/81076281/145035992-99a24d50-2544-4b1f-8b52-e2d9c9a6919a.PNG">
 
-<img width="475" alt="23" src="https://user-images.githubusercontent.com/81076281/145036164-20149afa-eb59-48bb-8d7c-1fd7e9cb27c9.PNG">
+<img width="479" alt="daa" src="https://user-images.githubusercontent.com/81076281/145036528-76ac9e88-6ab1-4ba9-805d-8ecbf9c1d71b.PNG">
 
 ### (4) Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut :Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
 
