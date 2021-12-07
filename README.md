@@ -168,6 +168,7 @@ Keterangan:
 - Install netcat di server Jipangu dan Doriki: `apt-get install netcat`
 - Pada Jipangu dan Doriki ketikkan: `nc -l -p 80`
 - Pada foosha ketikkan: `nmap -p 80 192.186.0.19` atau `nmap -p 80 192.186.0.18`
+
 **Foosha**
 
 <img width="427" alt="di" src="https://user-images.githubusercontent.com/81076281/145001108-d99a0e60-6268-40dc-bcba-915eb23de2cf.PNG">
@@ -282,4 +283,27 @@ iptables -A PREROUTING -t nat -p tcp -d 192.186.8.1 --dport 80 -j DNAT --to-dest
 iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.26 --dport 80 -j SNAT --to-source 192.186.8.1:80
 iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-source 192.186.8.1:80
 ```
+
+**Testing**
+- Pada Guanhao, Jorge, Maingate dan Elena install `apt-get install netcat`
+- Pada Jorge ketikkan perintah: `nc -l -p 80`
+- Pada Maingate ketikkan perintah: `nc -l -p 80`
+- Pada client Elena ketikkan perintah: `nc 192.186.8.1 80`
+- Ketikkan sembarang pada client Elena, nanti akan muncul bergantian
+
+**Elena**
+
+<img width="301" alt="si" src="https://user-images.githubusercontent.com/81076281/145011348-7ccc71a6-107b-4c5d-a7ef-46c48d5e8c83.PNG">
+
+**MainGate**
+
+<img width="221" alt="sa" src="https://user-images.githubusercontent.com/81076281/145011215-ae6fbfab-da84-432b-a2bf-dd69aca518cd.PNG">
+
+**Jorge**
+
+<img width="224" alt="su" src="https://user-images.githubusercontent.com/81076281/145011500-df815306-12e9-485f-bbdd-8f5b60da4bb4.PNG">
+
+
+
+
 
