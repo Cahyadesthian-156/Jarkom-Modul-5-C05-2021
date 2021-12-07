@@ -129,6 +129,8 @@ Berikut adalah hasilnya :
 
 ### (1) Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan MASQUERADE.
 
+**Foosha**
+
 Command yang digunakan `iptables -t nat -A POSTROUTING -s 192.186.0.0/16 -o eth0 -j SNAT --to-s (ip eth0)` yang menyesuaikan dari eth0 tersebut
 
 Lalu, pada semua node yang terkait dilakukan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
@@ -151,7 +153,19 @@ Catatan :
 
 ### (3) Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
 
-Pada Jipangu dan Doriki diberikan komen `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`. Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
+**Jipangu dan Doriki**
+
+Diberikan komen `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`. 
+
+Keterangan:
+-`-A INPUT`: Menggunakan chain INPUT
+-`-p icmp`: Mendefinisikan protokol yang digunakan, yaitu ICMP (ping)
+-`-m connlimit`: Menggunakan rule connection limit
+-`--connlimit-above 3`: Limit yang ditangkap paket adalah di atas 3
+-`--connlimit-mask `0: Hanya memperbolehkan 3 koneksi setiap subnet dalam satu waktu
+-`-j DROP`: Paket di-drop
+
+Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
 
 Lalu, ping ke arah Jipangu secara bersamaan.
 
