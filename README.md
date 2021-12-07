@@ -377,7 +377,7 @@ Keterangan:
 
 - Chiper
 
-<img width="500" alt="si" src="ttps://user-images.githubusercontent.com/81076281/145043455-965bd3f1-b73d-4c9f-aae1-6a1c50a88956.jpg">
+<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145043881-60061dec-c7af-4f32-aa95-af1816382ee8.jpg">
 
 ### (5) Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.Selain itu di reject
 
@@ -469,4 +469,5 @@ iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-so
 **Jorge**
 
 <img width="224" alt="su" src="https://user-images.githubusercontent.com/81076281/145011500-df815306-12e9-485f-bbdd-8f5b60da4bb4.PNG">
+
 
