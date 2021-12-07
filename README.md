@@ -158,12 +158,13 @@ Catatan :
 Diberikan komen `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`. 
 
 Keterangan:
--`-A INPUT`: Menggunakan chain INPUT
--`-p icmp`: Mendefinisikan protokol yang digunakan, yaitu ICMP (ping)
--`-m connlimit`: Menggunakan rule connection limit
--`--connlimit-above 3`: Limit yang ditangkap paket adalah di atas 3
--`--connlimit-mask `0: Hanya memperbolehkan 3 koneksi setiap subnet dalam satu waktu
--`-j DROP`: Paket di-drop
+
+- `-A INPUT`: Menggunakan chain INPUT
+- `-p icmp`: Mendefinisikan protokol yang digunakan, yaitu ICMP (ping)
+- `-m connlimit`: Menggunakan rule connection limit
+- `--connlimit-above 3`: Limit yang ditangkap paket adalah di atas 3
+- `--connlimit-mask `0: Hanya memperbolehkan 3 koneksi setiap subnet dalam satu waktu
+- `-j DROP`: Paket di-drop
 
 Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
 
