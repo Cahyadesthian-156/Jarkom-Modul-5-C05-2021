@@ -158,13 +158,15 @@ iface eth0 inet static
        gateway 192.186.0.17
 ```
 ### (C) Routing
+**Foosha**
+```
 route add -net 192.186.1.0 netmask 255.255.255.0 gw 192.186.0.6                                     
 route add -net 192.186.2.0 netmask 255.255.254.0 gw 192.186.0.6                                   
 route add -net 192.186.0.24 netmask 255.255.255.248 gw 192.186.0.6                                    
 route add -net 192.186.4.0 netmask 255.255.252.0 gw 192.186.0.2                                         
 route add -net 192.186.0.128 netmask 255.255.255.128 gw 192.186.0.2                                 
 route add -net 192.186.0.16 netmask 255.255.255.248 gw 192.186.0.2                                  
-
+```
 ### (D) Tugas berikutnya adalah memberikan ip pada subnet Blueno, Cipher, Fukurou, dan Elena secara dinamis menggunakan bantuan DHCP server. Kemudian kalian ingat bahwa kalian harus setting DHCP Relay pada router yang menghubungkannya.
 
 cara:
