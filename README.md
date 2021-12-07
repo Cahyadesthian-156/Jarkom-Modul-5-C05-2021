@@ -40,18 +40,34 @@ route add -net 192.186.0.128 netmask 255.255.255.128 gw 192.186.0.2
 route add -net 192.186.0.16 netmask 255.255.255.248 gw 192.186.0.2                                  
 
 ### (D) Tugas berikutnya adalah memberikan ip pada subnet Blueno, Cipher, Fukurou, dan Elena secara dinamis menggunakan bantuan DHCP server. Kemudian kalian ingat bahwa kalian harus setting DHCP Relay pada router yang menghubungkannya.
+
 cara:
-1. ubah ip Blueno, Cipher, Fukurou, dan Elena dengan command
+1. Install `apt-get instal isc-dhcp-relay -y` pada foosha, water7, dan guanhao, `apt-get install isc-dhcp-server` pada Jipangu
+
+2. Pada Router (foosha, water7 dan guanhao) Edit file `/etc/sysctl.conf` deengan command
 ```
-auto eth0
-iface eth0 inet dhcp
+net.ipv4.ip_forward=1
+net.ipv4.conf.all.accept_source_route = 1
+```
+3. Lakukan sysctl -p
+4. Buka file `/etc/default/isc-dhcp-relay` dan edit server dengan mengarahkan dchp-relay menuju Jipangu `192.186.0.19` lalu `service isc-dhcp-relay restart` pada foosha, water7, dan guanhao
+```
+echo '# What servers should the DHCP relay forward requests to?
+SERVERS="192.186.0.19"
+
+# On what interfaces should the DHCP relay (dhrelay) serve DHCP requests?
+INTERFACES=""
+
+# Additional options that are passed to the DHCP relay daemon?
+OPTIONS="" '> /etc/default/isc-dhcp-relay
 ```
 
-2. Lalu install `bind9 -y` pada Doriki, `apt-get instal isc-dhcp-relay -y` pada foosha, water7, dan guanhao, `apt-get install isc-dhcp-server` pada Jipangu
+5. Pada Jipangu edit file `/etc/default/isc-dhcp-server` dengan menambahkan:
+```
+INTERFACES="eth0
+```
 
-3. Arahkan dchp-relay menuju Jipangu `192.186.0.19` lalu `service isc-dhcp-relay restart` pada foosha, water7, dan guanhao
-
-4. Pada dhcp-server isikan data pada `/etc/dhcp/dhcpd.conf` di Jipangu, lalu lakukan `service isc-dhcp-server restart`
+6. Pada dhcp-server isikan data pada `/etc/dhcp/dhcpd.conf` di Jipangu, lalu lakukan `service isc-dhcp-server restart`
 ```
 subnet 192.186.1.0 netmask 255.255.255.0 {
     range 192.186.1.2 192.186.1.254;
@@ -87,10 +103,15 @@ subnet 192.186.2.0 netmask 255.255.254.0 {
 }
 subnet 192.186.0.16 netmask 255.255.255.248{
 }
-
 ```
 
-5. Lakukan restart di node yang dijadikan ip dhcp
+7. Buka file '/etc/network/interfaces`. Command konfigurasi lama (static) dan ubah ip Blueno, Cipher, Fukurou, dan Elena dengan command
+```
+auto eth0
+iface eth0 inet dhcp
+```
+
+8. Lakukan restart di node yang dijadikan ip dhcp
 
 Berikut adalah hasilnya :
 
@@ -110,13 +131,19 @@ Berikut adalah hasilnya :
 
 Command yang digunakan `iptables -t nat -A POSTROUTING -s 192.186.0.0/16 -o eth0 -j SNAT --to-s (ip eth0)` yang menyesuaikan dari eth0 tersebut
 
-Pada semua router Tambahkan di `/etc/sysctl.conf`:
-```
-net.ipv4.ip_forward=1
-net.ipv4.conf.all.accept_source_route = 1
-```
-
 Lalu, pada semua node yang terkait dilakukan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
+
+Keterangan:
+- `-t nat`: Menggunakan tabel NAT karena akan mengubah alamat asal dari paket
+- `-A POSTROUTING`: Menggunakan chain POSTROUTING karena mengubah asal paket setelah routing
+- `-s 192.186.0.0/16`: Mendifinisikan alamat asal dari paket yaitu semua alamat IP dari subnet 192.186.0.0/16
+- `-o eth0`: Paket keluar dari eth0 SURABAYA
+- `-j SNAT`: Menggunakan target SNAT untuk mengubah source atau alamat asal dari paket
+- `--to-s (ip eth0)`: Mendefinisikan IP source, di mana digunakan eth0 SURABAYA dengan rentang IP `192.168.122.0` sampai`192.168.122.255` sesuai dengan ip a
+
+Catatan :
+
+-> ip eth0 akan selalu berganti ketika restart node pada foosha atau restart GNS3 dengan rentang IP yang sudah dijelaskan
 
 ### (2) Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang memiliki ip DHCP dan DNS Server demi menjaga keamanan.
 
