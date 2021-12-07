@@ -164,6 +164,18 @@ Keterangan:
 - `-i eth0`: Paket masuk dari eth0 Foosha
 - `-j DROP`: Paket di-drop
 
+**Testing**
+- Install netcat di server Jipangu dan Doriki: `apt-get install netcat`
+- Pada Jipangu dan Doriki ketikkan: `nc -l -p 80`
+- Pada foosha ketikkan: `nmap -p 80 192.186.0.19` atau `nmap -p 80 192.186.0.18`
+**Foosha**
+
+<img width="427" alt="di" src="https://user-images.githubusercontent.com/81076281/145001108-d99a0e60-6268-40dc-bcba-915eb23de2cf.PNG">
+
+**Doriki**
+
+<img width="539" alt="da" src="https://user-images.githubusercontent.com/81076281/145001433-e7eb7900-09be-43dc-8241-2e5ee5c550f7.PNG">
+
 ### (3) Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
 
 **Jipangu dan Doriki**
