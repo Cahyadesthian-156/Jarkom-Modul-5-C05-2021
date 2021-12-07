@@ -137,9 +137,9 @@ Keterangan:
 - `-t nat`: Menggunakan tabel NAT karena akan mengubah alamat asal dari paket
 - `-A POSTROUTING`: Menggunakan chain POSTROUTING karena mengubah asal paket setelah routing
 - `-s 192.186.0.0/16`: Mendifinisikan alamat asal dari paket yaitu semua alamat IP dari subnet 192.186.0.0/16
-- `-o eth0`: Paket keluar dari eth0 SURABAYA
+- `-o eth0`: Paket keluar dari eth0 Foosha
 - `-j SNAT`: Menggunakan target SNAT untuk mengubah source atau alamat asal dari paket
-- `--to-s (ip eth0)`: Mendefinisikan IP source, di mana digunakan eth0 SURABAYA dengan rentang IP `192.168.122.0` sampai`192.168.122.255`
+- `--to-s (ip eth0)`: Mendefinisikan IP source, di mana digunakan eth0 Foosha dengan rentang IP `192.168.122.0` sampai`192.168.122.255`
 
 Catatan :
 
