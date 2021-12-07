@@ -409,7 +409,7 @@ Keterangan:
 
 - Fukurou
 
-<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145042547-884ed295-391d-494b-80d5-0753f23218f3.jpg">
+<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145043455-965bd3f1-b73d-4c9f-aae1-6a1c50a88956.jpg">
 
 ### (6) Karena kita memiliki 2 Web Server, Luffy ingin Guanhao disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada Jorge dan Maingate
 
