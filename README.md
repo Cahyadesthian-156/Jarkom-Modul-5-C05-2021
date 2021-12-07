@@ -368,6 +368,17 @@ Keterangan:
 - `-j ACCEPT` : Paket di-accept
 - `-j REJECT` : Paket ditolak
 
+
+**Testing**
+
+- Blueno
+
+<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145043140-32820dd7-2992-4e63-9f2a-b6eca14ae156.jpg">
+
+- Chiper
+
+<img width="500" alt="si" src="ttps://user-images.githubusercontent.com/81076281/145043455-965bd3f1-b73d-4c9f-aae1-6a1c50a88956.jpg">
+
 ### (5) Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.Selain itu di reject
 
 **Doriki**
@@ -389,6 +400,16 @@ Keterangan:
 - `-timestart 07:00` : Mendefinisikan waktu mulai yaitu 07:00
 - `-timestop 15:00: : Mendefinisikan waktu berhenti yaitu 15:00
 - `-j REJECT` : Paket ditolak
+
+**Testing**
+
+- Elena
+
+<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145042747-9e99754a-3f36-40a6-a62a-a35fc872e105.jpg">
+
+- Fukurou
+
+<img width="500" alt="si" src="https://user-images.githubusercontent.com/81076281/145042547-884ed295-391d-494b-80d5-0753f23218f3.jpg">
 
 ### (6) Karena kita memiliki 2 Web Server, Luffy ingin Guanhao disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada Jorge dan Maingate
 
