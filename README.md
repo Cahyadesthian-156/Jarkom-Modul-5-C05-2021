@@ -139,11 +139,13 @@ Keterangan:
 - `-s 192.186.0.0/16`: Mendifinisikan alamat asal dari paket yaitu semua alamat IP dari subnet 192.186.0.0/16
 - `-o eth0`: Paket keluar dari eth0 SURABAYA
 - `-j SNAT`: Menggunakan target SNAT untuk mengubah source atau alamat asal dari paket
-- `--to-s (ip eth0)`: Mendefinisikan IP source, di mana digunakan eth0 SURABAYA dengan rentang IP `192.168.122.0` sampai`192.168.122.255` sesuai dengan ip a
+- `--to-s (ip eth0)`: Mendefinisikan IP source, di mana digunakan eth0 SURABAYA dengan rentang IP `192.168.122.0` sampai`192.168.122.255`
 
 Catatan :
 
 -> ip eth0 akan selalu berganti ketika restart node pada foosha atau restart GNS3 dengan rentang IP yang sudah dijelaskan
+
+-> Cara mengetahui eth0, masukan command `ip a` pada foosha
 
 ### (2) Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang memiliki ip DHCP dan DNS Server demi menjaga keamanan.
 
