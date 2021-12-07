@@ -151,6 +151,19 @@ Catatan :
 
 ### (2) Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang memiliki ip DHCP dan DNS Server demi menjaga keamanan.
 
+**Foosha**
+
+Command yang digunakan yaitu `iptables -A FORWARD -p tcp --dport 80 -d 192.186.0.16/29 -i eth0 -j DROP`
+
+Keterangan:
+
+- `-A FORWARD`: Menggunakan chain FORWARD
+- `-p tcp`: Mendefinisikan protokol yang digunakan, yaitu tcp
+- `--dport 80`: Mendefinisikan port yang digunakan, yaitu 80 (HTTP)
+- `-d 192.186.0.16/29`: Mendefinisikan alamat tujuan dari paket (DHCP dan DNS SERVER ) berada pada subnet 192.186.0.16/29
+- `-i eth0`: Paket masuk dari eth0 Foosha
+- `-j DROP`: Paket di-drop
+
 ### (3) Karena kelompok kalian maksimal terdiri dari 3 orang. Luffy meminta kalian untuk membatasi DHCP dan DNS Server hanya boleh menerima maksimal 3 koneksi ICMP secara bersamaan menggunakan iptables, selebihnya didrop.
 
 **Jipangu dan Doriki**
@@ -163,7 +176,7 @@ Keterangan:
 - `-p icmp`: Mendefinisikan protokol yang digunakan, yaitu ICMP (ping)
 - `-m connlimit`: Menggunakan rule connection limit
 - `--connlimit-above 3`: Limit yang ditangkap paket adalah di atas 3
-- `--connlimit-mask `0: Hanya memperbolehkan 3 koneksi setiap subnet dalam satu waktu
+- `--connlimit-mask 0  Hanya memperbolehkan 3 koneksi setiap subnet dalam satu waktu
 - `-j DROP`: Paket di-drop
 
 Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
@@ -172,6 +185,22 @@ Lalu, ping ke arah Jipangu secara bersamaan.
 
 ### (4) Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut :Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
 
+**Doriki**
+- Untuk paket yang berasal dari Blueno menggunakan perintah:
+```
+iptables -A INPUT -s 192.186.0.128/25 -m time --timestart 07:00 --timestop 15:00 --weekdays Mon,Tue,Wed,Thu -j ACCEPT
+iptables -A INPUT -s 192.186.0.128/25 -j REJECT
+```
+Keterangan:
+
+`A INPUT` Menggunakan chain INPUT 
+`s 192.186.0.128/25` Mendifinisikan alamat asal dari paket yaitu IP dari subnet Blueno
+`m time` Menggunakan rule time
+`-timestart 07:00` Mendefinisikan waktu mulai yaitu 07:00
+`-timestop 15:00: MEndefinisikan waktu berhenti yaitu 15:00
+--weekdays Mon,Tue,Wed,Thu: Mendefinisikan hari yaitu Senin hingga Kamis
+-j ACCEPT: Paket di-accept
+-j REJECT : Paket ditolak
 
 ### (5) Akses dari subnet Elena dan Fukuro hanya diperbolehkan pada pukul 15.01 hingga pukul 06.59 setiap harinya.Selain itu di reject
 
