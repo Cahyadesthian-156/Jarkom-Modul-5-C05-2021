@@ -181,7 +181,11 @@ Keterangan:
 
 **Jipangu dan Doriki**
 
-Diberikan komen `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`. 
+Diberikan komen: 
+```
+iptables -D INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -D INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
+```
 
 Keterangan:
 
@@ -195,6 +199,13 @@ Keterangan:
 Lalu untuk mengecek bisa dilakukan dengan masuk ke 4 node berbeda
 
 Lalu, ping ke arah Jipangu secara bersamaan.
+
+<img width="530" alt="daa" src="https://user-images.githubusercontent.com/81076281/145035194-5108ff4d-cdb9-400f-8188-4698e109306e.PNG">
+
+<img width="427" alt="di" src="https://user-images.githubusercontent.com/81076281/145035715-9a758ab3-cb33-4aa7-ba04-3072367bb0df.PNG">
+
+<img width="475" alt="23" src="https://user-images.githubusercontent.com/81076281/145035760-cd0efe85-5b2f-4f6a-997b-ba9b77a0a3a7.PNG">
+
 
 ### (4) Kemudian kalian diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno, Cipher, Elena dan Fukuro dengan beraturan sebagai berikut :Akses dari subnet Blueno dan Cipher hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.
 
