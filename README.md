@@ -305,7 +305,13 @@ Keterangan:
 
 <img width="427" alt="di" src="https://user-images.githubusercontent.com/81076281/145001108-d99a0e60-6268-40dc-bcba-915eb23de2cf.PNG">
 
+<img width="500" alt="di" src="https://user-images.githubusercontent.com/81076281/145212402-51e91b3c-e9a1-4a6e-ba35-aea4a50dce39.jpg">
+
 **Doriki**
+
+<img width="500" alt="di" src="https://user-images.githubusercontent.com/81076281/145212861-2b1239e4-88e2-4b5b-b0d2-45002bb9636f.jpg">
+
+**JIPANGU**
 
 <img width="539" alt="da" src="https://user-images.githubusercontent.com/81076281/145001433-e7eb7900-09be-43dc-8241-2e5ee5c550f7.PNG">
 
