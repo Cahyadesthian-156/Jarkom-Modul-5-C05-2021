@@ -192,7 +192,7 @@ OPTIONS="" '> /etc/default/isc-dhcp-relay
 
 5. Pada Jipangu edit file `/etc/default/isc-dhcp-server` dengan menambahkan:
 ```
-INTERFACES="eth0
+INTERFACES="eth0"
 ```
 
 6. Pada dhcp-server isikan data pada `/etc/dhcp/dhcpd.conf` di Jipangu, lalu lakukan `service isc-dhcp-server restart`
