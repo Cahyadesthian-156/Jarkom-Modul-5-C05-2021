@@ -464,11 +464,11 @@ iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-so
 ```
 
 **Testing**
-- Pada Guanhao, Jorge, Maingate dan Elena install `apt-get install netcat`
+- Pada Guanhao, Jorge, Maingate Elena dan fukurou install `apt-get install netcat`
 - Pada Jorge ketikkan perintah: `nc -l -p 80`
 - Pada Maingate ketikkan perintah: `nc -l -p 80`
-- Pada client Elena ketikkan perintah: `nc 192.186.8.1 80`
-- Ketikkan sembarang pada client Elena, nanti akan muncul bergantian
+- Pada client Elena dan fukurou ketikkan perintah: `nc 192.186.8.1 80`
+- Ketikkan sembarang pada client Elena dan fukurou, nanti akan muncul bergantian
 
 **Elena**
 
