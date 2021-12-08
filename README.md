@@ -277,6 +277,10 @@ Catatan :
 
 -> Cara mengetahui eth0, masukan command `ip a` pada foosha
 
+
+Untuk sampel seperti berikut:
+<img src="https://github.com/Cahyadesthian-156/Jarkom-Modul-5-C05-2021/blob/main/img/ping-google-jorge.png" width="800">
+
 ### (2) Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server yang memiliki ip DHCP dan DNS Server demi menjaga keamanan.
 
 **Foosha**
@@ -311,8 +315,8 @@ Keterangan:
 
 Diberikan komen: 
 ```
-iptables -D INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -D INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
 ```
 
 Keterangan:
@@ -462,15 +466,19 @@ iptables -t nat -A POSTROUTING -p tcp -d 192.186.0.27 --dport 80 -j SNAT --to-so
 
 **Elena**
 
-<img width="301" alt="si" src="https://user-images.githubusercontent.com/81076281/145011348-7ccc71a6-107b-4c5d-a7ef-46c48d5e8c83.PNG">
+<img src="https://github.com/Cahyadesthian-156/Jarkom-Modul-5-C05-2021/blob/main/img/cek-elena.png" width="800">
 
 **MainGate**
 
-<img width="221" alt="sa" src="https://user-images.githubusercontent.com/81076281/145011215-ae6fbfab-da84-432b-a2bf-dd69aca518cd.PNG">
+<img src="https://github.com/Cahyadesthian-156/Jarkom-Modul-5-C05-2021/blob/main/img/cekmaingate.png" width="800">
 
 **Jorge**
 
-<img width="224" alt="su" src="https://user-images.githubusercontent.com/81076281/145011500-df815306-12e9-485f-bbdd-8f5b60da4bb4.PNG">
+<img src="https://github.com/Cahyadesthian-156/Jarkom-Modul-5-C05-2021/blob/main/img/cek-jorge.png" width="800">
+
+**Fukurou**
+
+<img src="https://github.com/Cahyadesthian-156/Jarkom-Modul-5-C05-2021/blob/main/img/cek-fukurou.png" width="800">
 
 Kendala:
 
